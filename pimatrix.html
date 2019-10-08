@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>MeSHOP Similarity</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      <h2>All PI Metadata</h2>
+
+      <span>Publication from 2016 to 2018 based on PI's ORCID profile</span><br>
+      <span><b>Num Publications:</b> Total number of records get from ORCID profile</span><br>
+      <span><b>PubMed Publications:</b> Number publications have PubMed ID</span><br>
+      <span><b>PubMed Publication (keywords >= 5):</b> Number PubMed publications with no less than 5 annotated MeSH keywords</span><br>
+      <span><b>PubMed Main Author Publications:</b> Number of publications which PI is first, second, second from the last and last author</span><br>
+      <span><b>Number Keywords:</b> Total number of keywords from PubMed Publications</span><br>
+      <span><b>Main Branch Keywords:</b> Number of keywords after removing branch Anthropology, Education, Sociology and Social Phenomena [I], Technology and Food and Beverages [J], Humanities [K], Publication Characteristics [V], Geographic Locations [Z]</span><br>
+      <span><b>Main Author Keywords:</b> Number of keywords from PubMed Publications which PI is first, second, second from the last and last author</span><br>
+      <span><b>Main Author Main Branch Keywords:</b> Number of keywords from PubMed Publications which PI is main author and keywords from main branch (remove I, J, K, V, Z)</span><br>
+
+      <div id='table-container'></div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+
+
+    <script type="text/javascript">
+      function format_link(link){
+        if (link) {
+          var hyperlink = 'https://orcid.org/' + link;
+          return "<a href='" + hyperlink + "' target='_blank'>" + link + "</a>";
+        }
+        else
+          return "";
+      }
+
+      CsvToHtmlTable.init({
+        csv_path: 'data/pi_matrix.csv',
+        element: 'table-container', 
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": false},
+        custom_formatting: [[2, format_link]]
+      });
+    </script>
+  </body>
+</html>

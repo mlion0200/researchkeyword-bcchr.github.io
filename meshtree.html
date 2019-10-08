@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MeSH Tree View</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="tree-boxes.css">
+
+    <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+    <script src="tree-boxes.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div>
+        <h1>MeSH Tree</h1>
+        <span>Publication (2016-2018) of PI as first, second, second from last, and last author in author list, remove Keywords with frequency < 3</span><br>
+        <span>Based on MeSH Index, for keywords with frequency < 3, merge keywords to it's parent keyword</span><br>
+        <span>Removed Branch</span><br>
+        <ul>
+            <li>Anthropology, Education, Sociology and Social Phenomena [I]</li>
+            <li>Technology and Food and Beverages [J]</li>
+            <li>Humanities [K]</li>
+            <li>Publication Characteristics [V]</li>
+            <li>Geographic Locations [Z]</li>
+        </ul>
+        <span>Color Code:</span><br>
+        <ul>
+            <li>Sum Count < 4: <font color="#ffffb2">Shalimar</font></li>
+            <li>4 <= Sum Count <= 30: <font color="#fecc5c">Kournikova</font></li>
+            <li>31 <= Sum Count <= 300: <font color="#fd8d3c">Sun</font></li>
+            <li>Sum Count > 300: <font color="#e31a1c">Red</font></li>
+        </ul>
+        <span>Transparency: </span><br>
+        <ul>
+            <li>Item Count < 1: 0.25</li>
+            <li>1 <= Item Count <= 3: 0.5</li>
+            <li>4 <= Item Count <= 10: 0.75</li>
+            <li>Item Count > 10: 1</li>
+        </ul>
+    </div>
+    <div class="container">
+        <ct-visualization id="tree-container"></ct-visualization>
+        <script>
+            d3.json("tree_node.json", function(error, json) {
+                treeBoxes('', json.tree);
+            });
+        </script>
+    </div>
+</body>
+</html>
