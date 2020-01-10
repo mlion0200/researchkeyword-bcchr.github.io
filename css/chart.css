@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+}
+
+body {
+    background-color:#ececec;
+}
+
+.container {
+  margin: 50px 0 0 100px;
+}
+
+.tile {
+  width:160px;
+  height:180px;
+  border-radius:4px;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.15);
+  margin-top:20px;
+  margin-left:20px;
+  margin-bottom:20px;
+  float:left;
+}
+
+.tile.wide {
+  width: 340px;
+}
+
+.tile .tile-header {
+  height:120px;
+  background-color:#f4f4f4;
+  border-radius: 4px 4px 0 0;
+  color:white;
+  font-weight:300;
+}
+
+.tile.wide .tile-header .left, .tile.wide .tile-header .right {
+  width:160px;
+  float:left;
+}
+
+.tile .tile-header .count {
+  font-size: 48px;
+  text-align:center;
+  padding:10px 0 0;
+}
+
+.tile .tile-header .title {
+  font-size: 20px;
+  text-align:center;
+}
+
+.tile .body {
+  height:60px;
+  border-radius: 0 0 4px 4px;
+  color:#333333;
+  background-color:white;
+}
+
+.tile .body .title {
+    text-align:center;
+    font-size:20px;
+    padding-top:2%;
+}
+
+.tile.wide .body .title {
+  padding:4%;
+}
+
+.tile.job .tile-header {
+  background: linear-gradient(to bottom right, #609931, #87bc27);
+}
+
+.tile.job  .body {
+  color: #609931;
+}
+
+.tile.resource .tile-header {
+  background: linear-gradient(to bottom right, #ef7f00, #f7b200);
+}
+
+.tile.resource  .body {
+  color: #ef7f00;
+}
+
+.tile.quote .tile-header {
+  background: linear-gradient(to bottom right, #1f6abb, #4f9cf2);
+}
+
+.tile.quote  .body {
+  color: #1f6abb;
+}
+
+.tile.invoice .tile-header {
+  background: linear-gradient(to bottom right, #0aa361, #1adc88);
+}
+
+.tile.invoice  .body {
+  color: #0aa361;
+}
+
+.tile-block {
+  text-align: center;
+  display: inline-block;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: orange;
+}
+
+.bar:hover {
+  fill: orangered ;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
