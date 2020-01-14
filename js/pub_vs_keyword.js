@@ -90,19 +90,4 @@ d3.csv("data/PubVsKeywords.csv", function(error, data) {
     .enter().append("g")
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-  // draw legend colored rectangles
-  legend.append("rect")
-      .attr("x", width - 10)
-      .attr("width", 10)
-      .attr("height", 10)
-      .style("fill", color);
-
-  // draw legend text
-  legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d;})
 });
