@@ -111,7 +111,13 @@ body {
 .axis line {
   fill: none;
   stroke: #000;
+  stroke-width: 1px;
   shape-rendering: crispEdges;
+}
+
+.point {
+  fill: steelblue;
+  stroke: #000;
 }
 
 .bar {
@@ -154,3 +160,4 @@ body {
   top: 100%;
   left: 0;
 }
+

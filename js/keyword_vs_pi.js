@@ -27,7 +27,7 @@ var tip = d3.tip()
 
 var svg2 = d3.select(".bar-chart-2").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top + margin.bottom + 20)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -40,16 +40,22 @@ d3.tsv("data/keyword_vs_pi.tsv", type, function(error, data) {
   svg2.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+    .append("text")
+      .attr("transform",
+            "translate(" + width/2 + " ," + (margin.bottom+10) + ")")
+      .style("text-anchor", "middle")
+      .text("Number of Keywords");
 
   svg2.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
+      .attr("x", 0-height/2)
+      .attr("y", 0-margin.left)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
       .text("Number of PIs");
 
   svg2.append("text")
